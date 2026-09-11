@@ -1,0 +1,40 @@
+{
+ "cases": {
+  "glide-01": {
+   "actor_action_abs_max": 3.685041904449463,
+   "allclose_atol_3e-6_rtol_2e-5": true,
+   "checkpoint": "checkpoints/glide/model_9499.pt",
+   "checkpoint_sha256": "3bfc40e4f2dd6408d7d600318309ae3f10ff12ac67b1f1afd7375c4e45182063",
+   "command_slot": 0.30000001192092896,
+   "max_abs_difference": 1.0728836059570312e-06,
+   "num_envs": 8,
+   "obs_shape": [
+    8,
+    61
+   ],
+   "onnx": "checkpoints/glide/policy.onnx",
+   "onnx_action_abs_max": 3.6850409507751465,
+   "onnx_sha256": "d60788a4a1470442632fb4dd1cd2df05f451e13e270c3fb541bc24ccac256bb9",
+   "phase_slot": 1.0,
+   "stage": "glide"
+  },
+  "glide-02": {
+   "actor_action_abs_max": 3.8283791542053223,
+   "allclose_atol_3e-6_rtol_2e-5": true,
+   "checkpoint": "checkpoints/glide/model_10499.pt",
+   "checkpoint_sha256": "8b46d6fa28c55df1a722a92dc35d176113438612633665c5f52291f6fecc69a1",
+   "command_slot": 0.30000001192092896,
+   "max_abs_difference": 2.1457672119140625e-06,
+   "num_envs": 8,
+   "obs_shape": [
+    8,
+    61
+   ],
+   "onnx": "checkpoints/glide/policy-glide-02.onnx",
+   "onnx_action_abs_max": 3.828378915786743,
+   "onnx_sha256": "5900b655d0cd99cac1d62f7409b11e847c1eabcd0d26075ac290acf2504d722d",
+   "phase_slot": 1.0,
+   "stage": "glide"
+  }
+ }
+}

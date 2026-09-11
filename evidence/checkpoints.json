@@ -1,0 +1,94 @@
+{
+ "full-v16-02-training": {
+  "/home/hikari/projects/microduck_rl/local/onefoot-public-acceleration/assets/088524a64e2557dc453256b6071dbb9d23888802/roller.onnx": "cf05651d2708a2f9364212e86b866c97a70ace8131c492500105e8f28bf99afd",
+  "/home/hikari/projects/microduck_rl/local/train-credit-bridge.py": "0f0b018ed1305168433b34287a2afbcb2c5f68ff33ab8a8539646f14e01df0a1",
+  "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-10_19-55-19_history-pilot-control/balance-100/model_16699.pt": "f5127a67d39e1e1eb16599dfc392f9a8dbc702073fc69045432d1a2d9686748b",
+  "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-10_23-52-51_credit-bridge-full-pilot/model_6899.pt": "6d1ebbb521ed1dd46fb03315f0292e7364afe3add8fd583a872d10cefafddf95",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/bridge_recovery.py": "4110a8fd9188c9e005c2d4263cf8c4997771eb2dc05096e8a6dfec62c17b1499",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/checkpoint_safety.py": "6aa54868ae36d72b937ed3e01ef799e9d837d4a2ae5c3c4a2c398c306cfc8e9e",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/public_residual_policy.py": "5ec4aa52450748b6c12800f6f26a58010c569a01ce03a026517f36dcf6200f33",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/retained_skill_bridge.py": "a4c97b708c1d5cda583874bcddfe73c881fb94be70acca6b24b360d6740c8897",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/tasks/__init__.py": "0aedce5adfded8af9583d140cd5d21e130203fe11fda5f337ba5f7a59d43d31e",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/tasks/mdp.py": "f9fd44ea6a4b30be75950514e258878900551ef67045f736d5d66d54bd5fd62c",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/tasks/microduck_onefoot_credit_bridge_env_cfg.py": "55fb990d62174e496b9090c4fd0605e2ce6596e100ff0650c856f65d8558e6f4"
+ },
+ "full-v16b-training": {
+  "/home/hikari/projects/microduck_rl/local/onefoot-public-acceleration/assets/088524a64e2557dc453256b6071dbb9d23888802/roller.onnx": "cf05651d2708a2f9364212e86b866c97a70ace8131c492500105e8f28bf99afd",
+  "/home/hikari/projects/microduck_rl/local/train-credit-bridge.py": "0f0b018ed1305168433b34287a2afbcb2c5f68ff33ab8a8539646f14e01df0a1",
+  "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-10_19-55-19_history-pilot-control/balance-100/model_16699.pt": "f5127a67d39e1e1eb16599dfc392f9a8dbc702073fc69045432d1a2d9686748b",
+  "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-11_00-30-01_credit-bridge-full-pilot/model_7899.pt": "fad526444c7313be88b8d2ae08df06ee2294668ca483be4af9c9d67da5f8d36c",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/bridge_recovery.py": "009eeeaa15498dcf3368e66781c096b5ac1248a891e156377e42b17a072f0e25",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/checkpoint_safety.py": "6aa54868ae36d72b937ed3e01ef799e9d837d4a2ae5c3c4a2c398c306cfc8e9e",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/public_residual_policy.py": "5ec4aa52450748b6c12800f6f26a58010c569a01ce03a026517f36dcf6200f33",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/retained_skill_bridge.py": "a4c97b708c1d5cda583874bcddfe73c881fb94be70acca6b24b360d6740c8897",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/tasks/__init__.py": "0aedce5adfded8af9583d140cd5d21e130203fe11fda5f337ba5f7a59d43d31e",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/tasks/mdp.py": "c51fbf9a34842b071543a361537824f1da97733cd8bd649b3fa7838548f89ddb",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/tasks/microduck_onefoot_credit_bridge_env_cfg.py": "55fb990d62174e496b9090c4fd0605e2ce6596e100ff0650c856f65d8558e6f4"
+ },
+ "glide-glide-01-training": {
+  "/home/hikari/projects/microduck_rl/local/onefoot-public-acceleration/assets/088524a64e2557dc453256b6071dbb9d23888802/roller.onnx": "cf05651d2708a2f9364212e86b866c97a70ace8131c492500105e8f28bf99afd",
+  "/home/hikari/projects/microduck_rl/local/train-credit-bridge.py": "6252cfa48cde09e6aee0fc3e90dc62be6d6032758e43c2b19c16c18ea6af9a96",
+  "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-10_19-55-19_history-pilot-control/balance-100/model_16699.pt": "f5127a67d39e1e1eb16599dfc392f9a8dbc702073fc69045432d1a2d9686748b",
+  "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-11_01-13-00_credit-bridge-full-pilot/model_8499.pt": "118a97803638cc2f1813783b67c1fd27f583be552b7351500407b64de4ceac48",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/bridge_recovery.py": "31417095e8aa18101689274173663ded7bf144e5681162132df215a54b85e40b",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/checkpoint_safety.py": "6aa54868ae36d72b937ed3e01ef799e9d837d4a2ae5c3c4a2c398c306cfc8e9e",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/public_residual_policy.py": "5ec4aa52450748b6c12800f6f26a58010c569a01ce03a026517f36dcf6200f33",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/retained_skill_bridge.py": "a4c97b708c1d5cda583874bcddfe73c881fb94be70acca6b24b360d6740c8897",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/tasks/__init__.py": "0aedce5adfded8af9583d140cd5d21e130203fe11fda5f337ba5f7a59d43d31e",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/tasks/mdp.py": "c51fbf9a34842b071543a361537824f1da97733cd8bd649b3fa7838548f89ddb",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/tasks/microduck_onefoot_credit_bridge_env_cfg.py": "590a613018606b8aa2626a968569dcdbe5b219fa8e685deb745d87377b3a24c8",
+  "/home/hikari/projects/microduck_rl/src/mjlab_microduck/tasks/microduck_onefoot_curriculum_poses.py": "5a061fcab604ff58238ad2db78b68189c79b3ef1bdb2c85224388920a62a7fde"
+ },
+ "shipped": {
+  "checkpoints/frozen/main-expert-balance100-model_16699.pt": {
+   "bytes": 4856071,
+   "sha256": "f5127a67d39e1e1eb16599dfc392f9a8dbc702073fc69045432d1a2d9686748b"
+  },
+  "checkpoints/frozen/public-roller-expert.onnx": {
+   "bytes": 793685,
+   "sha256": "cf05651d2708a2f9364212e86b866c97a70ace8131c492500105e8f28bf99afd"
+  },
+  "checkpoints/full-reboot-01/model_5899.pt": {
+   "bytes": 6448567,
+   "sha256": "69ab1782281d3f125d025d16dfa89253a5f2043445bf22da25d4ecbf8e32144c"
+  },
+  "checkpoints/full-v16-02/model_7899.pt": {
+   "bytes": 6448567,
+   "sha256": "fad526444c7313be88b8d2ae08df06ee2294668ca483be4af9c9d67da5f8d36c"
+  },
+  "checkpoints/full-v16b/model_8499.pt": {
+   "bytes": 6448567,
+   "sha256": "118a97803638cc2f1813783b67c1fd27f583be552b7351500407b64de4ceac48"
+  },
+  "checkpoints/glide/model_10499.pt": {
+   "bytes": 6448675,
+   "sha256": "8b46d6fa28c55df1a722a92dc35d176113438612633665c5f52291f6fecc69a1"
+  },
+  "checkpoints/glide/model_9499.pt": {
+   "bytes": 6448567,
+   "sha256": "3bfc40e4f2dd6408d7d600318309ae3f10ff12ac67b1f1afd7375c4e45182063"
+  },
+  "checkpoints/glide/policy-glide-02.onnx": {
+   "bytes": 2383153,
+   "sha256": "5900b655d0cd99cac1d62f7409b11e847c1eabcd0d26075ac290acf2504d722d"
+  },
+  "checkpoints/glide/policy.onnx": {
+   "bytes": 2383153,
+   "sha256": "d60788a4a1470442632fb4dd1cd2df05f451e13e270c3fb541bc24ccac256bb9"
+  }
+ },
+ "vendored": {
+  "local/onefoot-public-acceleration/assets/088524a64e2557dc453256b6071dbb9d23888802/roller.onnx": {
+   "bytes": 793685,
+   "identical_to": "checkpoints/frozen/public-roller-expert.onnx",
+   "sha256": "cf05651d2708a2f9364212e86b866c97a70ace8131c492500105e8f28bf99afd",
+   "why": "Tests load this file by its recorded path, so it is vendored at that path as well as kept in checkpoints/."
+  },
+  "logs/rsl_rl/onefoot/2026-09-10_19-55-19_history-pilot-control/balance-100/model_16699.pt": {
+   "bytes": 4856071,
+   "identical_to": "checkpoints/frozen/main-expert-balance100-model_16699.pt",
+   "sha256": "f5127a67d39e1e1eb16599dfc392f9a8dbc702073fc69045432d1a2d9686748b",
+   "why": "Tests load this file by its recorded path, so it is vendored at that path as well as kept in checkpoints/."
+  }
+ }
+}

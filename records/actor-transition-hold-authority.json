@@ -1,0 +1,52 @@
+{
+  "recorded_at": "2026-09-10T18:50:48.955641+00:00",
+  "kind": "actor_forward_transition",
+  "approved_by_user": true,
+  "source_state": "local/onefoot-bridge-curriculum/unload-extension-02-training/state.json",
+  "source_state_sha256": "cd744a3f205a00f7d4c26be0723a1c973eda15df1f2c2b11fe84c8b5531ced62",
+  "source_checkpoint": "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-10_18-12-30_credit-bridge-unload-pilot/model_2599.pt",
+  "source_checkpoint_sha256": "ac8504fdfd42158abfa6ab1d38fbc0df1bcc99eae8e127400526d21977906073",
+  "source_iteration": 2599,
+  "stage": "unload",
+  "changed_sources": {
+    "src/mjlab_microduck/retained_skill_bridge.py": {
+      "sha256_before": "1698df5d7c0179af69e78bd411b47348c619da19c6b882a4ff549917d9a2aaef",
+      "sha256_after": "a4c97b708c1d5cda583874bcddfe73c881fb94be70acca6b24b360d6740c8897"
+    }
+  },
+  "changed_tools": {
+    "local/train-credit-bridge.py": {
+      "sha256_before": "2ee350a7ddbacbed277df35875ed03a589b96a89d8ca9e52cdf0f61584a6097b",
+      "sha256_after": "55240f9b032a81c0dd2c662fd5231de84782b62fa77544ba77b5905b0aaa6edb"
+    },
+    "tests/test_retained_skill_bridge.py": {
+      "sha256_before": null,
+      "sha256_after": "28a52ab780b56c9bfea63bf4adffd305ae6fcea78ac9830cca75437fe774d903"
+    },
+    "tests/test_bridge_recovery.py": {
+      "sha256_before": null,
+      "sha256_after": "5b6e0f12bc71108bd672bec903d5692372e44faee9219bf6027b2263ed772fa8"
+    },
+    "tests/test_onefoot_performance.py": {
+      "sha256_before": null,
+      "sha256_after": "93f613e54ab4f46e6be254ca7afb36dd67de00d5811ba593a27f9b6e3c7fd8c5"
+    }
+  },
+  "parameter_identity_unchanged": true,
+  "parameter_keys_compared": 39,
+  "checkpoint_tensors_identical_on_load": true,
+  "frozen_skills_sha256_before": "b4c2f2d1a9fe86aa3d9a75dbfef766a2e83d1598f99a726d7c26c7f2883bd5d3",
+  "frozen_skills_sha256_after": "b4c2f2d1a9fe86aa3d9a75dbfef766a2e83d1598f99a726d7c26c7f2883bd5d3",
+  "reason": "The strict valid-glide predicate requires phase>=.99, and the correction gate 4*phase*(1-phase) is zero at phase=1, so the learnable residual had no authority during the sustained hold. The frozen onefoot expert then capped the whole task at its own measured ceiling (256 first episodes x 2 seeds from the balance pose: credible 0.5 s 86.3/87.1%, credible 1.0 s and 2.0 s 0.0%, max credible glide 0.88 s), which made the final 2 s goal of the full stage unreachable by construction rather than by undertraining.",
+  "change": "bridge_mean keeps the exact public-roller endpoint at phase=0 and gives the hold a reduced, recorded share of the residual: gate = 4*phase*(1-phase) + HOLD_AUTHORITY*blend with HOLD_AUTHORITY=.25. The residual's last layer is still zero-initialized, so both endpoints equal the retained experts bit for bit when training starts; only a trained residual may then extend the hold. Parameter identity, key order and the frozen expert digest are unchanged, so the existing checkpoint continues with all 17 Adam states.",
+  "evidence": [
+    {
+      "path": "local/onefoot-bridge-curriculum/near-training/gate-model_initial-71301.json",
+      "sha256": "e375ec016bfdc06313471b5ad2d25ad0e531f909839f2feae9ed0a08746af27f"
+    },
+    {
+      "path": "local/onefoot-bridge-curriculum/near-training/gate-model_initial-71302.json",
+      "sha256": "655a31105dfe6b211522f79d96fbf0ed5482a814a54147f0089e31c19589856a"
+    }
+  ]
+}

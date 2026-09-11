@@ -1,0 +1,13 @@
+{
+  "src/mjlab_microduck/tasks/mdp.py": {
+    "bytes": 351782,
+    "sha256": "6d241d65f2ed25042fc0a7b0e4a4a46c3cd3c02c6834b8a6db8c1b914c5e676e"
+  },
+  "src/mjlab_microduck/tasks/__init__.py": {
+    "bytes": 17366,
+    "sha256": "cc2ff23c5f0d8d61177001d76a3179ec53ce1b37e6f65a29da7f24e5fc867baf"
+  },
+  "user_instruction": "これは報酬設計見直したほうが良さそうだね。正しい報酬設計を意識して進めて。",
+  "recorded_at": "2026-09-10T14:04:55.341430+00:00",
+  "scope": "Reward redesign for retained-skill bridge only; both expert means, physics and main state preserved"
+}

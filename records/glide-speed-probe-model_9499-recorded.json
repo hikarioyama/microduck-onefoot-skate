@@ -1,0 +1,81 @@
+{
+  "checkpoint": "logs/rsl_rl/onefoot/2026-09-11_01-53-58_credit-bridge-glide-pilot/model_9499.pt",
+  "seed": 70601,
+  "rows": [
+    {
+      "injected_speed": 0.58,
+      "wheel_mode": "recorded",
+      "episodes": 64,
+      "mean_entry_speed": 0.5258653163909912,
+      "mean_max_credible": 1.3046875,
+      "max_credible": 1.6999999284744263,
+      "credible_100": 0.90625,
+      "credible_150": 0.328125,
+      "credible_200": 0.0,
+      "credible_200_count": 0,
+      "max_single_support": 1.6999999284744263,
+      "single_200_count": 0,
+      "mean_episode_s": 3.123124837875366,
+      "nan_episodes": 0,
+      "termination_counts": {
+        "time_out": 53,
+        "fell_over": 4,
+        "out_of_terrain_bounds": 0,
+        "nan_state": 0,
+        "body_ground": 6,
+        "stalled_transfer": 6,
+        "replanted_swing": 2
+      }
+    },
+    {
+      "injected_speed": 0.72,
+      "wheel_mode": "recorded",
+      "episodes": 64,
+      "mean_entry_speed": 0.5566645860671997,
+      "mean_max_credible": 1.1993749141693115,
+      "max_credible": 1.7400000095367432,
+      "credible_100": 0.75,
+      "credible_150": 0.421875,
+      "credible_200": 0.0,
+      "credible_200_count": 0,
+      "max_single_support": 1.7400000095367432,
+      "single_200_count": 0,
+      "mean_episode_s": 2.7674999237060547,
+      "nan_episodes": 0,
+      "termination_counts": {
+        "time_out": 45,
+        "fell_over": 6,
+        "out_of_terrain_bounds": 0,
+        "nan_state": 0,
+        "body_ground": 11,
+        "stalled_transfer": 8,
+        "replanted_swing": 0
+      }
+    },
+    {
+      "injected_speed": 0.78,
+      "wheel_mode": "recorded",
+      "episodes": 64,
+      "mean_entry_speed": 0.5803407430648804,
+      "mean_max_credible": 1.0437500476837158,
+      "max_credible": 1.899999976158142,
+      "credible_100": 0.640625,
+      "credible_150": 0.265625,
+      "credible_200": 0.0,
+      "credible_200_count": 0,
+      "max_single_support": 1.899999976158142,
+      "single_200_count": 0,
+      "mean_episode_s": 2.580937385559082,
+      "nan_episodes": 0,
+      "termination_counts": {
+        "time_out": 42,
+        "fell_over": 13,
+        "out_of_terrain_bounds": 0,
+        "nan_state": 0,
+        "body_ground": 7,
+        "stalled_transfer": 7,
+        "replanted_swing": 2
+      }
+    }
+  ]
+}

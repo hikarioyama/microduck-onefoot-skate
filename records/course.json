@@ -1,0 +1,191 @@
+{
+  "status": "review_required",
+  "coordinator_pid": 289409,
+  "started_at": "2026-09-10T16:46:02.263406+00:00",
+  "plan": [
+    "near",
+    "unload",
+    "transfer-near",
+    "transfer",
+    "full"
+  ],
+  "max_updates_per_stage": 1000,
+  "num_envs": 4096,
+  "stage_runs": [
+    {
+      "stage": "near",
+      "state_path": "local/onefoot-bridge-curriculum/near-training/state.json",
+      "status": "stage_passed",
+      "updates": 0,
+      "iteration": 299,
+      "checkpoint": "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-10_16-46-07_credit-bridge-near-pilot/model_initial.pt",
+      "checkpoint_sha256": "3c028e2dcdda645c18a10e2aab016972342f5bf6595b16f79ae9e94de1e7e4ee",
+      "stage_gate_passed": true
+    },
+    {
+      "stage": "unload",
+      "state_path": "local/onefoot-bridge-curriculum/unload-training/state.json",
+      "status": "completed",
+      "updates": 1000,
+      "iteration": 1299,
+      "checkpoint": "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-10_16-46-41_credit-bridge-unload-pilot/model_1299.pt",
+      "checkpoint_sha256": "05273676cfb80fddb627b0e517f5bdeade2cd15a0e18b4a06bc9daafc3f118de",
+      "stage_gate_passed": false
+    },
+    {
+      "stage": "unload",
+      "state_path": "local/onefoot-bridge-curriculum/unload-extension-02-training/state.json",
+      "status": "completed",
+      "updates": 1000,
+      "iteration": 2599,
+      "checkpoint": "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-10_18-12-30_credit-bridge-unload-pilot/model_2599.pt",
+      "checkpoint_sha256": "ac8504fdfd42158abfa6ab1d38fbc0df1bcc99eae8e127400526d21977906073",
+      "stage_gate_passed": false
+    },
+    {
+      "stage": "unload",
+      "state_path": "local/onefoot-bridge-curriculum/unload-extension-04-training/state.json",
+      "status": "stage_passed",
+      "updates": 600,
+      "iteration": 3199,
+      "checkpoint": "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-10_18-51-50_credit-bridge-unload-pilot/model_3199.pt",
+      "checkpoint_sha256": "e11547a454a9c027efcb547c2c0c32882dfb6cd6f8a217303441e144e0bcb662",
+      "stage_gate_passed": true
+    },
+    {
+      "stage": "transfer-near",
+      "state_path": "local/onefoot-bridge-curriculum/transfer-near-extension-04-training/state.json",
+      "status": "stage_passed",
+      "updates": 300,
+      "iteration": 3499,
+      "checkpoint": "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-10_19-11-26_credit-bridge-transfer-near-pilot/model_3499.pt",
+      "checkpoint_sha256": "2e2303f7c78aec2bde020e40f0fa909f0459bcdcbd9b4ed9c352705ae601b9ef",
+      "stage_gate_passed": true
+    },
+    {
+      "stage": "transfer",
+      "state_path": "local/onefoot-bridge-curriculum/transfer-extension-04-training/state.json",
+      "status": "stage_passed",
+      "updates": 400,
+      "iteration": 3899,
+      "checkpoint": "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-10_19-22-07_credit-bridge-transfer-pilot/model_3899.pt",
+      "checkpoint_sha256": "d1d1373f38a9e56b67db8a11fcf34d312e18d77aad72fab74f71995237f1f470",
+      "stage_gate_passed": true
+    },
+    {
+      "stage": "full",
+      "state_path": "local/onefoot-bridge-curriculum/full-extension-04-training/state.json",
+      "status": "completed",
+      "updates": 1000,
+      "iteration": 4899,
+      "checkpoint": "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-10_19-36-35_credit-bridge-full-pilot/model_4899.pt",
+      "checkpoint_sha256": "b78bba20a24f26a95d1ca5349e1acbe52ca3649dd1647882e9cece97ef2eac48",
+      "stage_gate_passed": false
+    },
+    {
+      "stage": "full",
+      "state_path": "local/onefoot-bridge-curriculum/full-reboot-01-training/state.json",
+      "status": "completed",
+      "updates": 1000,
+      "iteration": 5899,
+      "checkpoint": "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-10_23-11-22_credit-bridge-full-pilot/model_5899.pt",
+      "checkpoint_sha256": "69ab1782281d3f125d025d16dfa89253a5f2043445bf22da25d4ecbf8e32144c",
+      "stage_gate_passed": false
+    },
+    {
+      "stage": "full",
+      "state_path": "local/onefoot-bridge-curriculum/full-v16-training/state.json",
+      "status": "completed",
+      "updates": 1000,
+      "iteration": 6899,
+      "checkpoint": "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-10_23-52-51_credit-bridge-full-pilot/model_6899.pt",
+      "checkpoint_sha256": "6d1ebbb521ed1dd46fb03315f0292e7364afe3add8fd583a872d10cefafddf95",
+      "stage_gate_passed": false
+    },
+    {
+      "stage": "full",
+      "state_path": "local/onefoot-bridge-curriculum/full-v16-02-training/state.json",
+      "status": "completed",
+      "updates": 1000,
+      "iteration": 7899,
+      "checkpoint": "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-11_00-30-01_credit-bridge-full-pilot/model_7899.pt",
+      "checkpoint_sha256": "fad526444c7313be88b8d2ae08df06ee2294668ca483be4af9c9d67da5f8d36c",
+      "stage_gate_passed": false
+    },
+    {
+      "stage": "glide",
+      "state_path": "local/onefoot-bridge-curriculum/glide-glide-01-training/state.json",
+      "status": "completed",
+      "updates": 1000,
+      "iteration": 9499,
+      "checkpoint": "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-11_01-53-58_credit-bridge-glide-pilot/model_9499.pt",
+      "checkpoint_sha256": "3bfc40e4f2dd6408d7d600318309ae3f10ff12ac67b1f1afd7375c4e45182063",
+      "stage_gate_passed": false
+    },
+    {
+      "stage": "glide",
+      "state_path": "local/onefoot-bridge-curriculum/glide-glide-02-training/state.json",
+      "status": "completed",
+      "updates": 1000,
+      "iteration": 10499,
+      "checkpoint": "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-11_03-22-06_credit-bridge-glide-pilot/model_10499.pt",
+      "checkpoint_sha256": "8b46d6fa28c55df1a722a92dc35d176113438612633665c5f52291f6fecc69a1",
+      "stage_gate_passed": false
+    }
+  ],
+  "main_state_promotion": false,
+  "intermediate_goal_s": 0.5,
+  "final_goal_s": 2.0,
+  "stage": "glide",
+  "source_state": "local/onefoot-bridge-curriculum/glide-glide-01-training/state.json",
+  "active_state": "local/onefoot-bridge-curriculum/glide-glide-02-training/state.json",
+  "resumed_at": "2026-09-10T17:27:54.967681+00:00",
+  "extension_budget": 1000,
+  "extension_reason": "Credible 0.5 s rate rose 26.6%->60.9% over 1300 updates while the mean credible glide stayed ~0.51 s. Continue the saved branch for a bounded 1000-update block to test whether the rate is still improving.",
+  "interrupted_runs": [
+    {
+      "stage_path": "unload-extension-01",
+      "state_path": "local/onefoot-bridge-curriculum/unload-extension-01-training/state.json",
+      "status": "interrupted",
+      "cause": "external_shell_restart_killed_trainer",
+      "incident_record": "local/onefoot-bridge-curriculum/incident-unload-extension-01.json",
+      "updates": 300,
+      "iteration": 1599,
+      "checkpoint": "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-10_17-28-14_credit-bridge-unload-pilot/model_1599.pt",
+      "checkpoint_sha256": "119a25723ca49187349299d223abdc829f6a9c763c715e4cc32432eae8b4622b",
+      "credible_050_trend": [
+        0.5469,
+        0.5469,
+        0.5938,
+        0.6094
+      ],
+      "not_a_numeric_failure": true
+    }
+  ],
+  "chain_tag": "glide-02",
+  "session_end": {
+    "saved_at": "2026-09-11T05:29:00+09:00",
+    "reason": "user_reboot",
+    "training_state": "stopped_completed",
+    "stopped_by_user": false,
+    "note": "The extension-04 chain stopped by itself: full finished 1000 updates without passing its gate.",
+    "active_state_summary": {
+      "stage": "full",
+      "status": "completed",
+      "updates": 1000,
+      "iteration": 4899,
+      "gate_passed": false,
+      "credible_200_rate": 0.0,
+      "credible_050_rate": 0.84375,
+      "mean_credible_glide_s": 0.7019,
+      "max_credible_glide_s": 1.16,
+      "checkpoint": "logs/rsl_rl/onefoot/2026-09-10_19-36-35_credit-bridge-full-pilot/model_4899.pt",
+      "initial_assistance": false,
+      "initial_velocity_max_abs": 0.0
+    },
+    "resume_note": "local/onefoot-bridge-curriculum/RESUME-AFTER-REBOOT.ja.md",
+    "viewer_note": "microduck-live-viewer.service is a transient user unit and does not survive reboot; recreate it from the resume note.",
+    "main_state_unchanged": true
+  },
+  "exit_code": 1
+}

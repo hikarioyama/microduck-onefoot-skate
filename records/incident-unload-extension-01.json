@@ -1,0 +1,27 @@
+{
+  "recorded_at": "2026-09-10T17:53:09.657945+00:00",
+  "run": "unload-extension-01-training",
+  "trainer_pid": 1096650,
+  "last_saved_updates": 300,
+  "requested_updates": 500,
+  "last_saved_iteration": 1599,
+  "last_checkpoint": "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-10_17-28-14_credit-bridge-unload-pilot/model_1599.pt",
+  "last_checkpoint_sha256": "119a25723ca49187349299d223abdc829f6a9c763c715e4cc32432eae8b4622b",
+  "probable_cause": "User journal shows dsh-web.service restarted at 02:39:05-02:39:09; the trainer started 02:28 and its last log write was 02:39. Inference from timing, not a recorded exception.",
+  "evidence": [
+    "state.json still says running while the process is gone",
+    "no error field was written",
+    "trainer log ends mid-run without a CREDIT_RUN_FINISHED line",
+    "coordinator pid also gone"
+  ],
+  "preserved": [
+    "model_1599.pt",
+    "model_1600.pt",
+    "all earlier checkpoints",
+    "state.json",
+    "extension-01-course.log",
+    "unload-extension-01-training.log"
+  ],
+  "not_a_numeric_failure": true,
+  "main_state_updates": false
+}

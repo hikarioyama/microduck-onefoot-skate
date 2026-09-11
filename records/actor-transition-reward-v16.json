@@ -1,0 +1,83 @@
+{
+  "recorded_at": "2026-09-10T23:52:10.266189+00:00",
+  "kind": "reward_forward_transition",
+  "approved_by_user": true,
+  "source_state": "local/onefoot-bridge-curriculum/full-reboot-01-training/state.json",
+  "source_state_sha256": "17aa510093b56868ccbde96f6e4b3911495dc1d32d70ab63f9b06d07004d8bb9",
+  "source_checkpoint": "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-10_23-11-22_credit-bridge-full-pilot/model_5899.pt",
+  "source_checkpoint_sha256": "69ab1782281d3f125d025d16dfa89253a5f2043445bf22da25d4ecbf8e32144c",
+  "source_iteration": 5899,
+  "stage": "full",
+  "changed_sources": {
+    "src/mjlab_microduck/bridge_recovery.py": {
+      "sha256_before": "736fa61f33e9636116b4268fb10c287ed7cdd6c2f84f7a48fb8fdf96367f6fb9",
+      "sha256_after": "4110a8fd9188c9e005c2d4263cf8c4997771eb2dc05096e8a6dfec62c17b1499"
+    },
+    "src/mjlab_microduck/tasks/mdp.py": {
+      "sha256_before": "f5c1e21927a5e65fd5201ab233678d495cd292d97869aff0308316c3f0e8c1e6",
+      "sha256_after": "f9fd44ea6a4b30be75950514e258878900551ef67045f736d5d66d54bd5fd62c"
+    }
+  },
+  "changed_tools": {
+    "local/train-credit-bridge.py": {
+      "sha256_before": "55240f9b032a81c0dd2c662fd5231de84782b62fa77544ba77b5905b0aaa6edb",
+      "sha256_after": "0f0b018ed1305168433b34287a2afbcb2c5f68ff33ab8a8539646f14e01df0a1"
+    },
+    "tests/test_retained_skill_bridge.py": {
+      "sha256_before": null,
+      "sha256_after": "28a52ab780b56c9bfea63bf4adffd305ae6fcea78ac9830cca75437fe774d903"
+    },
+    "tests/test_bridge_recovery.py": {
+      "sha256_before": null,
+      "sha256_after": "cd813f05ec1c1329d4af279989230f3072a7e7d5ff48c180b481107218b3e219"
+    },
+    "tests/test_credit_bridge_rewards.py": {
+      "sha256_before": null,
+      "sha256_after": "eaabaeca4f622d5327dcb2c2cb9bd8d62b48cd8ea54a4096bac62af58f27091f"
+    },
+    "local/trace-credit-bridge-full.py": {
+      "sha256_before": null,
+      "sha256_after": "a3bff5e0b687518f82cfe3756852c2b6c7d939fb869acbb90114680da1d21792"
+    },
+    "local/probe-credit-bridge-acceleration.py": {
+      "sha256_before": null,
+      "sha256_after": "b8bfbb3d741108ba4ab7b128b629847c093f6fe3a77dbc7c027c8ebe838d4ffc"
+    }
+  },
+  "parameter_identity_unchanged": true,
+  "parameter_keys_compared": 39,
+  "checkpoint_tensors_identical_on_load": true,
+  "frozen_skills_sha256_before": "b4c2f2d1a9fe86aa3d9a75dbfef766a2e83d1598f99a726d7c26c7f2883bd5d3",
+  "frozen_skills_sha256_after": "b4c2f2d1a9fe86aa3d9a75dbfef766a2e83d1598f99a726d7c26c7f2883bd5d3",
+  "reason": "The measured 2.0 s glide prerequisite is entry_speed >= .10 + 2*|deceleration|. At the previously assumed constant ~.17 m/s^2 decay that needs .44 m/s, above the frozen public expert's measured .38 m/s plateau, so the full-stage gate looked out of reach; but the measured decay over the first .25 s of a credible glide is only -.039 m/s^2 (median +.016 over a .2 s window), and the reference four-wheel rolling decay is -.058. The loss after .25 s is therefore balance drift, not rolling resistance: lateral capture error grows .0072 -> .0203 m while the fore/aft error drifts -.015 -> +.015 m, the support-line yaw stays at .03-.18 rad (no inward support-skate steering), and every long glide ends by falling sideways, not by reaching the .10 m/s floor.",
+  "change": "v16 keeps the v15 structure (task + shaping + failure) and adds: (B) a one-shot 'handoff' term paying 1.0*clamp((entry_speed-.38)/.15,0,1) once per episode, only after .25 s of credible glide, so it is exactly zero for every behaviour at or below today's ceiling and always below failure_cost; (E) a balance DEBT charged only during loaded left-only support, (|lateral|-0.008)/0.025 squared plus (|fore/aft|-0.005)/0.020 squared, accumulated into the existing smooth_debt so it discounts later glide credit instead of becoming a negative continuing reward; and (E') the same fore/aft axis added to the terminal-zero potential. Measured effect of the deadbands: 0.00 debt over 2 s at the measured p50 balance, 0.21 at p75, 2.03 at p90, 12.6 at p99. The legacy region of mdp.py (first 351782 bytes) stays byte-identical. bridge_recovery.py is added to COMPATIBLE_SOURCES so the continuation policy is pinned to the source run too, and its transition kinds are now named explicitly (actor_forward_transition / reward_forward_transition) so a record cannot silently mix them.",
+  "evidence": [
+    {
+      "path": "local/onefoot-bridge-curriculum/GLIDE-PHYSICS-DIAGNOSIS.ja.md",
+      "sha256": "050d0fdf2bfec5fda2a6b05abbe1b081f0037a9ff0367adf433844e786136bca"
+    },
+    {
+      "path": "local/onefoot-bridge-curriculum/REWARD-V16-SPEC.ja.md",
+      "sha256": "af5c946ed6e723bde3efc9e000ee7829dffb29e05235ae357dd61d2014cf4765"
+    },
+    {
+      "path": "local/onefoot-bridge-curriculum/full-trace-u1000.json",
+      "sha256": "f56f4d7d062fa8ddf8e407e5b8f25eb43d48945c33fa36d9cc6aa8ec63b85399"
+    },
+    {
+      "path": "local/onefoot-bridge-curriculum/accel-probe-long.json",
+      "sha256": "738da8d678387b7add30ec490881980f9aeed860ebd8a4a97568135382a65a4f"
+    }
+  ],
+  "reward_terms_before": [
+    "failure",
+    "shaping",
+    "task"
+  ],
+  "reward_terms_after": [
+    "failure",
+    "handoff",
+    "shaping",
+    "task"
+  ]
+}

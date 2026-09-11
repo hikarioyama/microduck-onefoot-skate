@@ -1,0 +1,27 @@
+{
+  "checkpoint": "logs/rsl_rl/onefoot/2026-09-11_03-22-06_credit-bridge-glide-pilot/model_10000.pt",
+  "rows": [
+    {
+      "policy": "frozen-onefoot",
+      "episodes": 64,
+      "injected_speed": 0.72,
+      "mean_entry_speed": 0.39722561836242676,
+      "max_entry_speed": 0.7222533226013184,
+      "mean_max_credible": 0.02187499776482582,
+      "max_credible": 0.17999999225139618,
+      "implied_mean_decel": 13.587458227783431,
+      "credible_100": 0.0,
+      "credible_200": 0.0,
+      "mean_episode_s": 0.46562498807907104,
+      "termination_counts": {
+        "time_out": 0,
+        "fell_over": 59,
+        "out_of_terrain_bounds": 0,
+        "nan_state": 0,
+        "body_ground": 22,
+        "stalled_transfer": 0,
+        "replanted_swing": 2
+      }
+    }
+  ]
+}

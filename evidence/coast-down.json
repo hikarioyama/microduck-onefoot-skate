@@ -1,0 +1,150 @@
+{
+ "v15-model_4899": {
+  "checkpoint": "logs/rsl_rl/onefoot/2026-09-10_19-36-35_credit-bridge-full-pilot/model_4899.pt",
+  "coast_down_mean_accel": -0.16071823840452637,
+  "coast_down_worst_accel": -0.2757313103881606,
+  "credible_050": 55,
+  "credible_100": 7,
+  "credible_200": 0,
+  "derived_2s_requirement_mps": 0.4214,
+  "derived_shortfall_at_mean_entry_mps": 0.0836,
+  "entry_speed_com": {
+   "count": 64,
+   "max": 0.40802955627441406,
+   "mean": 0.3378599649295211,
+   "min": 0.280771404504776,
+   "p50": 0.3378443419933319,
+   "p90": 0.36752939224243164
+  },
+  "episodes": 64,
+  "exit_reason_counts": {
+   "body_ground": 12,
+   "body_ground,stalled_transfer": 1,
+   "fell_over": 12,
+   "fell_over,body_ground": 7,
+   "fell_over,body_ground,replanted_swing": 1,
+   "fell_over,body_ground,stalled_transfer": 3,
+   "fell_over,replanted_swing": 1,
+   "fell_over,stalled_transfer": 5,
+   "replanted_swing": 4,
+   "stalled_transfer": 18
+  },
+  "fell": 42,
+  "glides": {
+   "accel_median_abs": 0.1677,
+   "accel_p25_abs": 0.1421,
+   "accel_p90_abs": 0.2212,
+   "count": 64,
+   "duration_median_s": 0.74,
+   "exit_at_speed_floor_share": 0.0781,
+   "exit_reasons": {
+    "body_ground": 12,
+    "body_ground,stalled_transfer": 1,
+    "fell_over": 12,
+    "fell_over,body_ground": 7,
+    "fell_over,body_ground,replanted_swing": 1,
+    "fell_over,body_ground,stalled_transfer": 3,
+    "fell_over,replanted_swing": 1,
+    "fell_over,stalled_transfer": 5,
+    "replanted_swing": 4,
+    "stalled_transfer": 18
+   },
+   "exit_speed_median": 0.2461,
+   "share_under_0.13": 0.1875
+  },
+  "implied_max_glide_s_from_coast": {
+   "count": 63,
+   "max": 8.014443472946487,
+   "mean": 1.7172703595787777
+  },
+  "max_best_credible_s": 1.16,
+  "mean_best_credible_s": 0.7012499999999999,
+  "never_transferred": 27,
+  "reached_single_support": 64,
+  "replanted": 6,
+  "seed": 70601,
+  "speed_budget": {
+   "achieved_max_credible_s": 1.16,
+   "budget_used": 0.784,
+   "decel_needed_for_2s_at_this_entry": 0.1189,
+   "entry_mean_mps": 0.3379,
+   "entry_needed_for_2s_at_this_decel": 0.4214,
+   "implied_max_glide_s": 1.48,
+   "mean_decel_abs": 0.1607
+  }
+ },
+ "v16-02-model_7899": {
+  "checkpoint": "logs/rsl_rl/onefoot/2026-09-11_00-30-01_credit-bridge-full-pilot/model_7899.pt",
+  "coast_down_mean_accel": -0.24338484525959023,
+  "coast_down_worst_accel": -0.3301083728839497,
+  "credible_050": 53,
+  "credible_100": 40,
+  "credible_200": 0,
+  "derived_2s_requirement_mps": 0.5868,
+  "derived_shortfall_at_mean_entry_mps": 0.0588,
+  "entry_speed_com": {
+   "count": 64,
+   "max": 0.6326913833618164,
+   "mean": 0.5279696770012379,
+   "min": 0.3460407257080078,
+   "p50": 0.5352377891540527,
+   "p90": 0.5596068501472473
+  },
+  "episodes": 64,
+  "exit_reason_counts": {
+   "body_ground": 3,
+   "body_ground,stalled_transfer": 1,
+   "fell_over": 3,
+   "fell_over,body_ground": 8,
+   "fell_over,body_ground,replanted_swing": 1,
+   "fell_over,body_ground,stalled_transfer": 1,
+   "fell_over,stalled_transfer": 1,
+   "replanted_swing": 2,
+   "stalled_transfer": 7,
+   "time_out": 37
+  },
+  "fell": 18,
+  "glides": {
+   "accel_median_abs": 0.248,
+   "accel_p25_abs": 0.2316,
+   "accel_p90_abs": 0.2703,
+   "count": 64,
+   "duration_median_s": 1.52,
+   "exit_at_speed_floor_share": 0.6719,
+   "exit_reasons": {
+    "body_ground": 3,
+    "body_ground,stalled_transfer": 1,
+    "fell_over": 3,
+    "fell_over,body_ground": 8,
+    "fell_over,body_ground,replanted_swing": 1,
+    "fell_over,body_ground,stalled_transfer": 1,
+    "fell_over,stalled_transfer": 1,
+    "replanted_swing": 2,
+    "stalled_transfer": 7,
+    "time_out": 37
+   },
+   "exit_speed_median": 0.1116,
+   "share_under_0.13": 0.0
+  },
+  "implied_max_glide_s_from_coast": {
+   "count": 64,
+   "max": 3.6134015583439116,
+   "mean": 1.8006554070641312
+  },
+  "max_best_credible_s": 1.72,
+  "mean_best_credible_s": 1.0628125000000002,
+  "never_transferred": 10,
+  "reached_single_support": 64,
+  "replanted": 3,
+  "seed": 70601,
+  "speed_budget": {
+   "achieved_max_credible_s": 1.72,
+   "budget_used": 0.978,
+   "decel_needed_for_2s_at_this_entry": 0.214,
+   "entry_mean_mps": 0.528,
+   "entry_needed_for_2s_at_this_decel": 0.5868,
+   "implied_max_glide_s": 1.758,
+   "mean_decel_abs": 0.2434
+  }
+ }
+}

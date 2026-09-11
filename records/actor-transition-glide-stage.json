@@ -1,0 +1,104 @@
+{
+  "recorded_at": "2026-09-11T01:52:56.883611+00:00",
+  "kind": "task_contract_transition",
+  "approved_by_user": true,
+  "source_state": "local/onefoot-bridge-curriculum/full-v16b-training/state-recovered.json",
+  "source_state_sha256": "88884116f650db9ba487eb9250bce8eb4e524a01e1f0bb96172922817fa0fb72",
+  "source_checkpoint": "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-11_01-13-00_credit-bridge-full-pilot/model_8499.pt",
+  "source_checkpoint_sha256": "118a97803638cc2f1813783b67c1fd27f583be552b7351500407b64de4ceac48",
+  "source_iteration": null,
+  "stage": "full",
+  "changed_sources": {
+    "src/mjlab_microduck/bridge_recovery.py": {
+      "sha256_before": "009eeeaa15498dcf3368e66781c096b5ac1248a891e156377e42b17a072f0e25",
+      "sha256_after": "31417095e8aa18101689274173663ded7bf144e5681162132df215a54b85e40b"
+    },
+    "src/mjlab_microduck/tasks/microduck_onefoot_credit_bridge_env_cfg.py": {
+      "sha256_before": "55fb990d62174e496b9090c4fd0605e2ce6596e100ff0650c856f65d8558e6f4",
+      "sha256_after": "590a613018606b8aa2626a968569dcdbe5b219fa8e685deb745d87377b3a24c8"
+    },
+    "src/mjlab_microduck/tasks/microduck_onefoot_curriculum_poses.py": {
+      "sha256_before": null,
+      "sha256_after": "5a061fcab604ff58238ad2db78b68189c79b3ef1bdb2c85224388920a62a7fde"
+    }
+  },
+  "changed_tools": {
+    "local/train-credit-bridge.py": {
+      "sha256_before": "0f0b018ed1305168433b34287a2afbcb2c5f68ff33ab8a8539646f14e01df0a1",
+      "sha256_after": "6252cfa48cde09e6aee0fc3e90dc62be6d6032758e43c2b19c16c18ea6af9a96"
+    },
+    "tests/test_retained_skill_bridge.py": {
+      "sha256_before": null,
+      "sha256_after": "28a52ab780b56c9bfea63bf4adffd305ae6fcea78ac9830cca75437fe774d903"
+    },
+    "tests/test_bridge_recovery.py": {
+      "sha256_before": null,
+      "sha256_after": "b99167b159367461d79441dc9fa6327b7888c7d3eca00c26f9cf4c3f6f60ac49"
+    },
+    "tests/test_credit_bridge_rewards.py": {
+      "sha256_before": null,
+      "sha256_after": "22328eb1dad03efdb1cd0a9baf256e33ca5c29b623049779dd8f1abf79796e98"
+    },
+    "tests/test_onefoot_curriculum.py": {
+      "sha256_before": null,
+      "sha256_after": "7bd4b30e65409892671ee32cd28f2484cfc65ebd25ce672c0b87d316f4cc93fe"
+    },
+    "local/trace-credit-bridge-full.py": {
+      "sha256_before": null,
+      "sha256_after": "5b0a85fb76576b37bf7c68207c59572a3c5fd59e16df019c4eff64fe3ca2305c"
+    },
+    "local/probe-credit-bridge-acceleration.py": {
+      "sha256_before": null,
+      "sha256_after": "dd1f2996310a792e62d98f61c8b370cb88a91765140f9f496a0c43156753ef2c"
+    },
+    "local/measure-glide-pose.py": {
+      "sha256_before": null,
+      "sha256_after": "63f947efac190b50f18092aa394c2cc1246ec8e5ce4b0c74642f35b0482ad3f9"
+    },
+    "local/add-glide-pose.py": {
+      "sha256_before": null,
+      "sha256_after": "69fd712e3f85ae3550b801f2c1d0efc2ca032a2d677b5b513a422dd39436c29b"
+    }
+  },
+  "parameter_identity_unchanged": true,
+  "parameter_keys_compared": 39,
+  "checkpoint_tensors_identical_on_load": true,
+  "frozen_skills_sha256_before": "b4c2f2d1a9fe86aa3d9a75dbfef766a2e83d1598f99a726d7c26c7f2883bd5d3",
+  "frozen_skills_sha256_after": "b4c2f2d1a9fe86aa3d9a75dbfef766a2e83d1598f99a726d7c26c7f2883bd5d3",
+  "reason": "The from-rest full stage spends its first 2.0 s in phase=0, where the correction gate\n4*phase*(1-phase) is exactly 0: the frozen public acceleration expert runs and NOTHING is\nlearnable. That prefix was 2.00 s of a 5.73 s mean episode, i.e. 35% of every episode with\nzero learnable authority, and the task's own physics says it cannot be improved there: with\nthe phase=0 window stretched to 8 s the frozen expert still plateaus at .382 m/s, and the\nmeasured velocity plateau is t=2.6-3.4 s at .37-.38 m/s, so the existing handoff at t=3.0 s\nalready leaves at 95% of that peak and delaying it is worse (0.317 m/s at t=5.0 s). The user\nasked to train the glide from speed instead of replaying the push every episode. The assisted\nmechanics for that already exist (near/unload/transfer-near/transfer spawn at a measured pose\nwith an injected speed and phase_start) but every assisted stage capped its injected speed at\n.25-.35 m/s and none of them started inside the sustained hold, so there was no stage that\ntrained the glide itself at the speed the glide actually needs.",
+  "change": "Add an assisted glide stage that spawns inside the measured single-support glide and trains the\nsustained 2.0 s objective directly. The spawn is MEASURED, not chosen: local/measure-glide-pose.py\nrolls out the full stage and records the servo configuration, the servo joint velocities and the\nroot orientation at the first frame where loaded left-only support holds (63/64 episodes\ncaptured), and local/add-glide-pose.py takes the medians, clamps the positions 1e-4 rad inside the\nmodel's joint ranges, and grounds them on the tyre MESH vertices (the convention\ntests/test_onefoot_curriculum.py already enforces). The recorded state is genuinely single\nsupport: the support skate is grounded while the swing skate is clear by 0.0155/0.0727 m, the\nentry speed is p50 .505 / p90 .548 / max .585, the median |servo joint velocity| is 1.86 rad/s\nwith the swing hip at 7.64 rad/s, and the root is pitched 0.106 rad forward. speed_range is\n(.45,.58); phase_start=1.0 with acceleration_s=0 and lift_s=1.0 puts phase at exactly 1.0 from\nthe first control step, so no episode replays the frozen phase=0 prefix; goal_s is 2.0, identical\nto full, and episode_length_s is 3.4 s. SUSTAINED_STAGES=('glide','full') makes both stages\ncertify against the 2.0 s credible metric, and bridge_stage_gate now reads that tuple from the cfg\ninstead of hardcoding 'full'. The faithful spawn lives in this env-cfg module rather than in\nmdp.py deliberately: mdp.py's pre-v15 region is pinned byte-for-byte by\ntests/test_old_mdp_and_registry_bytes_are_preserved, and inserting optional parameters into the\nshared reset helper would shift that region and destroy an invariant that can never be restored.\nreset_credit_bridge_spawn reproduces the shared helper exactly, adding only root_pitch and\njoint_vel, and it is installed ONLY for poses that actually carry those extra measured fields, so\nevery other assisted stage keeps mdp.reset_curriculum_onefoot byte for byte. Spawning the glide\nentry without them is not neutral: with the posture of one instant and the joints of a standstill\nthe same policy's credible 0.5 s rate collapsed from 0.97 to 0.30, because that combined state\nnever occurs in a real trajectory. glide is an ASSISTED start and is labelled as such by the\nexisting initial_assistance=(stage!='full') contract, so it can never be presented as from-rest\nevidence: only full (HOME, exact zero velocity) certifies a from-rest result. Everything happens\nonce, at reset; nothing is corrected mid-episode. Two audit gaps are closed as well:\nmicroduck_onefoot_credit_bridge_env_cfg.py and microduck_onefoot_curriculum_poses.py are now both\nin COMPATIBLE_SOURCES, so the task timing, the stage definitions and the spawn poses are pinned to\nthe source run like the reward and the actor. The new named kind task_contract_transition records\nthis change; its owner file must move, and a transition that is not an actor-forward transition\nmay never move the actor.",
+  "evidence": [
+    {
+      "path": "local/onefoot-bridge-curriculum/glide-pose-measurement.json",
+      "sha256": "73703ad44ed42ef5475d6a7784d4dce8db2aaba5b6146deb7de72b2dbbba0be7"
+    },
+    {
+      "path": "local/onefoot-bridge-curriculum/glide-spawn-vs-handoff.json",
+      "sha256": "e54c0b6dd56a945aba9b11d1e4b2bea1c850a6bcbbbfddc082d798282a87c2b2"
+    },
+    {
+      "path": "local/onefoot-bridge-curriculum/incident-v16b-01.json",
+      "sha256": "86e9ad88cebbd0ca68057aa9bcd9479cf53fba39d0c800682d63cdd305757d72"
+    },
+    {
+      "path": "local/onefoot-bridge-curriculum/full-trace-v16-02-u1000.json",
+      "sha256": "be6af5192e45db06d51158f911377006ba991b609878bbf4dd3488cd52ee64a2"
+    },
+    {
+      "path": "local/onefoot-bridge-curriculum/probe-liftwindow-6s.json",
+      "sha256": "f9db8738ce578c31c769bb71a7e83239c586707210b371ca6eb5d0052026b964"
+    }
+  ],
+  "reward_terms_before": [
+    "failure",
+    "handoff",
+    "shaping",
+    "task"
+  ],
+  "reward_terms_after": [
+    "failure",
+    "handoff",
+    "shaping",
+    "task"
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "recorded_at": "2026-09-11T03:21:17.020916+00:00",
+  "kind": "task_contract_transition",
+  "approved_by_user": true,
+  "source_state": "local/onefoot-bridge-curriculum/glide-glide-01-training/state.json",
+  "source_state_sha256": "04bae3149ed1c50121d9a710aa9d8e332b3f911f63e781e6f5b1e1fb018785f8",
+  "source_checkpoint": "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-11_01-53-58_credit-bridge-glide-pilot/model_9499.pt",
+  "source_checkpoint_sha256": "3bfc40e4f2dd6408d7d600318309ae3f10ff12ac67b1f1afd7375c4e45182063",
+  "source_iteration": 9499,
+  "stage": "glide",
+  "changed_sources": {
+    "src/mjlab_microduck/tasks/microduck_onefoot_credit_bridge_env_cfg.py": {
+      "sha256_before": "590a613018606b8aa2626a968569dcdbe5b219fa8e685deb745d87377b3a24c8",
+      "sha256_after": "3da006732b26ea6e77e17fd794b698488b685db77871ade1ef89754b44549188"
+    }
+  },
+  "changed_tools": {
+    "tests/test_retained_skill_bridge.py": {
+      "sha256_before": null,
+      "sha256_after": "28a52ab780b56c9bfea63bf4adffd305ae6fcea78ac9830cca75437fe774d903"
+    },
+    "tests/test_bridge_recovery.py": {
+      "sha256_before": null,
+      "sha256_after": "b99167b159367461d79441dc9fa6327b7888c7d3eca00c26f9cf4c3f6f60ac49"
+    },
+    "tests/test_credit_bridge_rewards.py": {
+      "sha256_before": null,
+      "sha256_after": "f0361e6e9aef4cfec0975a95c34ea06b3baf2d8384485b273e1748bf72cda4d4"
+    },
+    "tests/test_onefoot_curriculum.py": {
+      "sha256_before": null,
+      "sha256_after": "7bd4b30e65409892671ee32cd28f2484cfc65ebd25ce672c0b87d316f4cc93fe"
+    },
+    "local/trace-credit-bridge-full.py": {
+      "sha256_before": null,
+      "sha256_after": "5b0a85fb76576b37bf7c68207c59572a3c5fd59e16df019c4eff64fe3ca2305c"
+    },
+    "local/probe-credit-bridge-acceleration.py": {
+      "sha256_before": null,
+      "sha256_after": "dd1f2996310a792e62d98f61c8b370cb88a91765140f9f496a0c43156753ef2c"
+    },
+    "local/measure-glide-pose.py": {
+      "sha256_before": null,
+      "sha256_after": "63f947efac190b50f18092aa394c2cc1246ec8e5ce4b0c74642f35b0482ad3f9"
+    },
+    "local/add-glide-pose.py": {
+      "sha256_before": null,
+      "sha256_after": "69fd712e3f85ae3550b801f2c1d0efc2ca032a2d677b5b513a422dd39436c29b"
+    }
+  },
+  "parameter_identity_unchanged": true,
+  "parameter_keys_compared": 39,
+  "checkpoint_tensors_identical_on_load": true,
+  "frozen_skills_sha256_before": "b4c2f2d1a9fe86aa3d9a75dbfef766a2e83d1598f99a726d7c26c7f2883bd5d3",
+  "frozen_skills_sha256_after": "b4c2f2d1a9fe86aa3d9a75dbfef766a2e83d1598f99a726d7c26c7f2883bd5d3",
+  "reason": "Let the assisted glide stage train where a 2.0 s glide is reachable, by widening the entry-speed band and making the support wheels follow it.",
+  "change": "Widen the assisted glide entry band and make the support wheels follow it.\n\n1. ASSISTED_BRIDGE_STARTS[glide] speed_range (.45,.58) -> (.50,.76). The old band\n   sat entirely below the speed at which a 2.0 s credible glide is reachable for\n   this body. Sweeping the injected speed over the frozen model_9499 policy\n   (local/probe-glide-entry-speed.py) locates that boundary: entry 0.62 m/s never\n   reaches 2.0 s, entry 0.685 m/s does, and 2.0 s glides appear for the first time\n   (1/64 at injection 0.72, 2/64 at 0.78).\n\n2. reset_credit_bridge_spawn gains wheel_speed_follow (default False, so every\n   other assisted stage keeps byte-identical behaviour). When set, the two SUPPORT\n   wheels spin at v/r of the sampled speed instead of the value recorded at 0.51\n   m/s. The recorded value implies 0.55 m/s and contradicts any other injected\n   speed inside the actor own observation. Measured on the same frozen policy,\n   injecting 0.58 -> 0.78 m/s: the entry speed the policy settles at moves\n   0.526 -> 0.580 m/s with the recorded wheels and 0.558 -> 0.742 m/s with them\n   following. Without this, widening the band alone would have bought almost\n   nothing. The two UNLOADED swing wheels stay at their recorded near-still\n   values, because a wheel in mid-air does not roll with the ground.\n\nReward terms are unchanged (reward_terms_before == after). No actor file is\ntouched: the frozen experts, the transition gate and the parameter identities are\nuntouched. mdp.py is unchanged by this record. Diagnosed from the trace that at\nevery injected speed 51-59 of 64 episodes reach the 3.4 s horizon, so the glide\nends on the speed floor, not on a fall: the speed budget is the binding constraint.",
+  "evidence": [
+    {
+      "path": "/tmp/evidence-glide-speed.txt",
+      "sha256": "e2d83d94039d3bd112a9c53f6f95e3a3a59c5fe4429c33de8619542f6ce4db8d"
+    }
+  ],
+  "reward_terms_before": [
+    "failure",
+    "handoff",
+    "shaping",
+    "task"
+  ],
+  "reward_terms_after": [
+    "failure",
+    "handoff",
+    "shaping",
+    "task"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+ "extracted_from": "the `range` attribute of each <joint>, in the 14-actuator order",
+ "joint_ranges_rad": {
+  "head_pitch": [
+   -1.5707963267948974,
+   1.5707963267948957
+  ],
+  "head_roll": [
+   -0.43633231299859127,
+   0.4363323129985735
+  ],
+  "head_yaw": [
+   -2.967059728390373,
+   2.967059728390348
+  ],
+  "left_ankle": [
+   -1.5707963267949054,
+   1.5707963267948877
+  ],
+  "left_hip_pitch": [
+   -1.570796326795005,
+   1.5707963267947882
+  ],
+  "left_hip_roll": [
+   -0.3839724354387525,
+   0.3839724354387525
+  ],
+  "left_hip_yaw": [
+   -0.4363323129985824,
+   0.5235987755982988
+  ],
+  "left_knee": [
+   -1.570796326795012,
+   1.570796326794781
+  ],
+  "neck_pitch": [
+   -1.5707963267948966,
+   1.0471975511965976
+  ],
+  "right_ankle": [
+   -1.5707963267949063,
+   1.5707963267948868
+  ],
+  "right_hip_pitch": [
+   -1.5707963267949268,
+   1.5707963267948664
+  ],
+  "right_hip_roll": [
+   -0.3839724354387525,
+   0.3839724354387525
+  ],
+  "right_hip_yaw": [
+   -0.5235987755982988,
+   0.4363323129985824
+  ],
+  "right_knee": [
+   -1.570796326794932,
+   1.570796326794861
+  ]
+ },
+ "measured_saturation_under_policy": {
+  "count": 10,
+  "joints_reaching_a_limit": {
+   "head_roll": "LO",
+   "head_yaw": "LO and HI",
+   "left_ankle": "HI",
+   "left_hip_roll": "LO",
+   "left_knee": "HI",
+   "neck_pitch": "LO",
+   "right_hip_pitch": "LO",
+   "right_hip_roll": "LO",
+   "right_hip_yaw": "LO",
+   "right_knee": "HI"
+  },
+  "note": "qpos presses against the limit and can exceed the nominal range by up to ~0.016 rad, which is the soft-limit penetration of the contact solver. Driving a servo against a mechanical stop is intended by the policy, and is a real sim-to-real caveat.",
+  "policy": "checkpoints/glide/policy-glide-02.onnx",
+  "protocol": "80 control steps, 8 envs, stage=glide, deterministic mean action",
+  "tolerance_rad": 0.02
+ },
+ "order": "ACTUATOR order, which is NOT the robot joint order (the head block differs)",
+ "source": "src/mjlab_microduck/robot/microduck/robot_groundcontact_rollers.xml",
+ "source_sha256": "e410e74978511fa2efdc9dcbe1488964c0c149ecca568a59dc73ef7f8844bf8b",
+ "units": "radians"
+}

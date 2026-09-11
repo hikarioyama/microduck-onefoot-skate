@@ -1,0 +1,9 @@
+{
+  "recorded_at": "2026-09-10T16:28:12.205512+00:00",
+  "user_instruction": "え？進めて。5070Ti君のために空けてるからさ。",
+  "gpu_uuid": "GPU-8e73d1bd-4e6b-4fdf-bd0a-602e0cf7d3f9",
+  "scope": "Continue retained-skill bridge with exact actor/critic/normalizer/Adam restoration; assisted reverse curriculum and separate from-rest checks.",
+  "preserve_all_checkpoints": true,
+  "no_main_state_promotion": true,
+  "management": "Continue reviewed curriculum stages rather than merely report a finished short trial and leave the assigned GPU idle."
+}

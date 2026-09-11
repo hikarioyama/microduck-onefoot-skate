@@ -1,0 +1,55 @@
+{
+  "recorded_at": "2026-09-11T01:41:11.932065+00:00",
+  "run": "v16b-training",
+  "unit": "microduck-bridge-v16b-01.service",
+  "last_completed_updates": 600,
+  "requested_updates": 1000,
+  "last_checkpoint": "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-11_01-13-00_credit-bridge-full-pilot/model_8499.pt",
+  "last_checkpoint_sha256": "118a97803638cc2f1813783b67c1fd27f583be552b7351500407b64de4ceac48",
+  "reported_updates_at_failure": 700,
+  "cause": "Operator error, not a numerical failure. While this run was in flight the operator edited files the trainer hashes at startup and re-verifies every chunk (local/train-credit-bridge.py, tasks/mdp.py, tasks/microduck_onefoot_credit_bridge_env_cfg.py, tasks/microduck_onefoot_curriculum_poses.py) to add the assisted `glide` stage. The integrity guard fired exactly as designed and raised AssertionError on the first changed path. No reward, policy or batch numerics were involved.",
+  "evidence": [
+    "state.json records status=error with AssertionError naming a pinned source",
+    "all 7 reports verify: checkpoint file present and SHA256 matches",
+    "every report has nan_episodes=0",
+    "no CREDIT_RUN_FINISHED line was written"
+  ],
+  "preserved": [
+    "model_7900.pt",
+    "model_7999.pt",
+    "model_8000.pt",
+    "model_8099.pt",
+    "model_8100.pt",
+    "model_8199.pt",
+    "model_8200.pt",
+    "model_8299.pt",
+    "model_8300.pt",
+    "model_8399.pt",
+    "model_8400.pt",
+    "model_8499.pt",
+    "model_8500.pt",
+    "model_8599.pt",
+    "model_initial.pt"
+  ],
+  "not_a_numeric_failure": true,
+  "main_state_updates": false,
+  "last_report": {
+    "updates": 600,
+    "credible_050_rate": 0.96875,
+    "credible_100_rate": 0.84375,
+    "credible_200_rate": 0.0,
+    "max_credible_glide_s": 1.6999999284744263,
+    "mean_credible_glide_s": 1.2899999618530273,
+    "mean_entry_speed": 0.5200269753113389,
+    "nan_episodes": 0,
+    "termination_counts": {
+      "time_out": 52,
+      "fell_over": 6,
+      "out_of_terrain_bounds": 0,
+      "nan_state": 0,
+      "body_ground": 3,
+      "stalled_transfer": 7,
+      "replanted_swing": 5
+    }
+  }
+}

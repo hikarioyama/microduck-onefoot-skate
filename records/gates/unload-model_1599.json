@@ -1,0 +1,35 @@
+{
+  "recorded_at": "2026-09-10T17:53:16.511976+00:00",
+  "stage": "unload",
+  "checkpoint": "logs/rsl_rl/onefoot/2026-09-10_17-28-14_credit-bridge-unload-pilot/model_1599.pt",
+  "checkpoint_sha256": "119a25723ca49187349299d223abdc829f6a9c763c715e4cc32432eae8b4622b",
+  "episodes": 256,
+  "seeds": [
+    71301,
+    71302
+  ],
+  "success_050_rate": [
+    0.83203125,
+    0.80859375
+  ],
+  "credible_050_rate": [
+    0.59375,
+    0.59375
+  ],
+  "mean_credible_glide_s": [
+    0.512890636920929,
+    0.5128905773162842
+  ],
+  "max_credible_glide_s": [
+    0.7199999690055847,
+    0.7199999690055847
+  ],
+  "nan_episodes": [
+    0,
+    0
+  ],
+  "gate_passed": false,
+  "why_not_passed": "Original valid-predicate 0.5 s success passes (83.2%/80.9%), but the stricter credible-motion 0.5 s rate is only 59.38% in both seeds, below the 80% requirement.",
+  "interpretation": "Assisted unloading start only. Not a from-rest result and not a stage promotion.",
+  "main_state_updates": false
+}

@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Microduck viewer</title>
+<script>
+const viewer = new URL(location.href);
+viewer.port = '8086';
+viewer.pathname = '/';
+location.replace(viewer.href);
+</script>
+<noscript><a href="http://localhost:8086/">標準ビューアーを開く</a></noscript>
+</html>

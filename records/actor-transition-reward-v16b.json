@@ -1,0 +1,80 @@
+{
+  "recorded_at": "2026-09-11T01:11:34.164191+00:00",
+  "kind": "reward_forward_transition",
+  "approved_by_user": true,
+  "source_state": "local/onefoot-bridge-curriculum/full-v16-02-training/state.json",
+  "source_state_sha256": "cc8e722110189d87af4c318e13c915b8482d19c012b0fb3926ce234bea499ec7",
+  "source_checkpoint": "/home/hikari/projects/microduck_rl/logs/rsl_rl/onefoot/2026-09-11_00-30-01_credit-bridge-full-pilot/model_7899.pt",
+  "source_checkpoint_sha256": "fad526444c7313be88b8d2ae08df06ee2294668ca483be4af9c9d67da5f8d36c",
+  "source_iteration": 7899,
+  "stage": "full",
+  "changed_sources": {
+    "src/mjlab_microduck/bridge_recovery.py": {
+      "sha256_before": "4110a8fd9188c9e005c2d4263cf8c4997771eb2dc05096e8a6dfec62c17b1499",
+      "sha256_after": "009eeeaa15498dcf3368e66781c096b5ac1248a891e156377e42b17a072f0e25"
+    },
+    "src/mjlab_microduck/tasks/mdp.py": {
+      "sha256_before": "f9fd44ea6a4b30be75950514e258878900551ef67045f736d5d66d54bd5fd62c",
+      "sha256_after": "c51fbf9a34842b071543a361537824f1da97733cd8bd649b3fa7838548f89ddb"
+    }
+  },
+  "changed_tools": {
+    "tests/test_retained_skill_bridge.py": {
+      "sha256_before": null,
+      "sha256_after": "28a52ab780b56c9bfea63bf4adffd305ae6fcea78ac9830cca75437fe774d903"
+    },
+    "tests/test_bridge_recovery.py": {
+      "sha256_before": null,
+      "sha256_after": "cd813f05ec1c1329d4af279989230f3072a7e7d5ff48c180b481107218b3e219"
+    },
+    "tests/test_credit_bridge_rewards.py": {
+      "sha256_before": null,
+      "sha256_after": "8948a2f6669c02d56644aacb5a719386fa104a9860cf22301e8b46f4548ddafe"
+    },
+    "local/trace-credit-bridge-full.py": {
+      "sha256_before": null,
+      "sha256_after": "ea99460580392c627dcd5d690d0ad8aa37cddd8e70662d2a71768ce1ca3bdaa7"
+    },
+    "local/probe-credit-bridge-acceleration.py": {
+      "sha256_before": null,
+      "sha256_after": "b8bfbb3d741108ba4ab7b128b629847c093f6fe3a77dbc7c027c8ebe838d4ffc"
+    }
+  },
+  "parameter_identity_unchanged": true,
+  "parameter_keys_compared": 39,
+  "checkpoint_tensors_identical_on_load": true,
+  "frozen_skills_sha256_before": "b4c2f2d1a9fe86aa3d9a75dbfef766a2e83d1598f99a726d7c26c7f2883bd5d3",
+  "frozen_skills_sha256_after": "b4c2f2d1a9fe86aa3d9a75dbfef766a2e83d1598f99a726d7c26c7f2883bd5d3",
+  "reason": "The v16-02 block solved the balance problem and exposed the next binding constraint. Of 64 first episodes, 44 now survive the whole 6 s horizon on one foot (no falls, no right-skate replant) and every single one of them ends at com_speed 0.00 m/s: they glide, bleed all momentum and then stand balanced on the skate. Balance is no longer the limit; the momentum budget is. The measured glide decay is .256 m/s^2 and the measured glide-entry speed is median .546 m/s, so a 2.0 s credible glide needs .613 m/s at entry -- a shortfall of .080 m/s. The glide-entry peak was pinned at .546 m/s with a reward saturation of .38+.15=.53 m/s, i.e. the handoff term had exactly zero gradient over the whole interval where the policy needed to improve.",
+  "change": "Widen the already-approved handoff term so the gradient survives above today's behaviour, without changing the frozen-expert reference: BRIDGE_HANDOFF_SPAN .15 -> .30 (full credit at .68 m/s, above the measured .613 m/s requirement) and BRIDGE_HANDOFF_GAIN 1.0 -> 1.2 (still below failure_cost 2.0, so a reckless lift that survives the .25 s hold and then falls still nets negative). The reference .38 m/s is unchanged, so every behaviour at or below the frozen public expert's ceiling still earns exactly zero and the v15/v16-02 optimum is untouched. The task-timing file microduck_onefoot_credit_bridge_env_cfg.py is also added to COMPATIBLE_SOURCES: the phase schedule (acceleration 2.0 s, lift 1.0 s, goal 2.0 s) is part of the task contract, but was previously not pinned by the continuation verifier at all. A new test asserts the span prices speeds above the measured .55 m/s glide peak.",
+  "evidence": [
+    {
+      "path": "local/onefoot-bridge-curriculum/full-trace-v16-02-u1000.json",
+      "sha256": "a091df36cd69cf3b5b925a5c397867d3bcd5ad746dacd9d59857c221d6c46000"
+    },
+    {
+      "path": "local/onefoot-bridge-curriculum/full-trace-v16-u1000.json",
+      "sha256": "2ff02080626e98d363b3655835b19e472c7ae4e49c51ec1fa7c2d33d6c9b45ac"
+    },
+    {
+      "path": "local/onefoot-bridge-curriculum/GLIDE-PHYSICS-DIAGNOSIS.ja.md",
+      "sha256": "050d0fdf2bfec5fda2a6b05abbe1b081f0037a9ff0367adf433844e786136bca"
+    },
+    {
+      "path": "local/onefoot-bridge-curriculum/REWARD-V16-SPEC.ja.md",
+      "sha256": "761bf8dbf110d7205b0f7866355ede623e2d0d5c79cc7d2681d51915beeed9d3"
+    }
+  ],
+  "reward_terms_before": [
+    "failure",
+    "handoff",
+    "shaping",
+    "task"
+  ],
+  "reward_terms_after": [
+    "failure",
+    "handoff",
+    "shaping",
+    "task"
+  ]
+}
